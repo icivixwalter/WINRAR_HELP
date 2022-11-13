@@ -28,3 +28,12 @@
 
         esempio
             git init
+
+
+## P
+    push
+        Note
+            git push...
+
+        esempio
+            git push --set-upstream origin main

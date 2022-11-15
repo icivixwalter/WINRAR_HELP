@@ -1,4 +1,6 @@
-WIN RAR MANUALE_UTENTE_INTRODUZIONE
+
+WIN RAR
+    WIN RAR MANUALE_UTENTE_INTRODUZIONE
 
                                     Manuale d'utente
                                     ~~~~~~~~~~~~~~~~
@@ -3057,23 +3059,21 @@ WIN RAR MANUALE_UTENTE_INTRODUZIONE
                                     @REM    con data DI CREAZIONE AFTER  -ta2022-11-07 ALLA DATA DI CREAZIONE BEFORE -tb2022-11-13 
                                     c:\CASA\WinRAR\Rar.exe a -taC2022-11-07 -tbC2022-11-13 %FileRar2% @Listafile.txt
 
-
-WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
+    WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
        
 
-        Dovrai guardare Rar.exe /? & UnRAR.exe /?
+        TIPO RAR
 
+            RAR 4.20        Copyright (c) 1993-2012 Alexander Roshal     9 Giu 2012
+                           Traduzione in italiano (c) Andrea Baitelli
+            Registrato a: XXXXX
 
-    TIPO
+        SINTASSI BASE RAR
 
-        RAR 4.20        Copyright (c) 1993-2012 Alexander Roshal     9 Giu 2012
-                       Traduzione in italiano (c) Andrea Baitelli
-        Registrato a: XXXXX
+                    Sintassi: RAR <comando> -<opzione_1> -<opzione_N> <archivio> <file...>
+                          <@lista_file...> <percorso_dove_estrarre\>
 
-        Sintassi: RAR <comando> -<opzione_1> -<opzione_N> <archivio> <file...>
-                      <@lista_file...> <percorso_dove_estrarre\>
-
-        <Comandi>
+        <Comandi italiano>
         
           a             Aggiungi file all'archivio
           c             Aggiungi il commento all'archivio
@@ -3099,7 +3099,7 @@ WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
           v[t,b]        Lista contenuto dell'archivio estesa [T=tecnico, B=solo nome]
           x             Estrai i file dell'archivio comprendenti il percorso archiv.
 
-        <Opzioni>
+        <Opzioni italialno>
           -             Interrompi la scansione delle opzioni
           @[+]          Disabilita [abilita] l'impiego di file di tipo lista_file
           ac            Cancella l'attributo "Modificato" dopo compressione o estraz.
@@ -3188,8 +3188,89 @@ WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
           x@<lista>     Escludi i file specificati in una lista a file
           y             Assumi la risposta 'Si' a tutte le domande
           z[<file>]     Legge il commento dell'archivio da file
+        <Opzioni inglese>
 
-
+    -ac                     clear Archive attribute after compression or extraction
+    -ad                     append archive name to destination path
+    -af<type>               specify archive format
+    -ag[format]             generate archive name using the current date and time
+    -ao                     add files with Archive attribute set
+    -ap                     set path inside archive
+    -as                     synchronize archive contents
+    -av                     apply authenticity verification
+    -av-                    disable adding authenticity verification
+    -cfg-                   ignore default profile and environment variable
+    -cl                     convert file names to lower case
+    -cu                     convert file names to upper case
+    -df                     delete files after archiving
+    -dh                     open shared files
+    -ds                     do not sort archiving files
+    -ed                     do not add empty folders
+    -en                     do not add "end of archive" block
+    -ep                     exclude paths from names
+    -ep1                    exclude base folder from names
+    -ep2                    expand paths to full
+    -ep3                    expand paths to full including the drive letter
+    -e[+]<attr>             set file exclude or include attributes
+    -f  freshen             files
+    -fcu                    use Unicode text format when adding or writing archive comments
+    -hp[pwd]                encrypt both file data and headers
+    -ibck                   run WinRAR in background
+    -ieml                   send archive by email
+    -iicon<name>            specify SFX icon
+    -iimg<name>             specify SFX logo
+    -ilog[name]             log errors to file
+    -inul                   disable error messages
+    -ioff                   turn PC off
+    -k                      lock archive
+    -kb                     keep broken extracted files
+    -m<n>                   set compression method
+    -mc<par>                set advanced compression parameters
+    -md<n>                  select dictionary size
+    -ms                     specify file types to store
+    -mt<threads>            set the number of threads
+    -n<file>                include only the specified file
+    -n@<listfile>           include files using the specified list file
+    -oc                     set NTFS "Compressed" attribute
+    -or                     rename files automatically
+    -os                     save NTFS streams
+    -ow                     process file security information
+    -o+                     overwrite existing files
+    -o-                     do not overwrite existing files
+    -p[pwd]                 set password
+    -r                      recurse subfolders
+    -r0                     recurse subfolders for wildcard names only
+    -ri                     set priority and sleep time
+    -rr[N]                  add data recovery record
+    -rv[N]                  create recovery volumes
+    -s                      create a solid archive
+    -s<N>                   create solid groups using file count
+    -se                     create solid groups using file extension
+    -sfx[name]              create self-extracting archive
+    -sl<size>               process files with size less than specified
+    -sm<size>               process files with size more than specified
+    -sv                     create independent solid volumes
+    -sv-                    create dependent solid volumes
+    -s-                     disable solid archiving
+    -t                      test files after archiving
+    -ta<date>               process files modified after the specified date
+    -tb<date>               process files modified before the specified date
+    -tk                     keep original archive time
+    -tl                     set archive time to newest file
+    -tn<time>               process files newer than the specified time
+    -to<time>               process files older than the specified time
+    -ts<m,c,a>              save or restore file time (modification, creation, access)
+    -u                      update files
+    -v<n>[k|b|f|m|M|g|G]    create volumes
+    -vd                     erase disk contents before creating volume
+    -ver                    file version control
+    -vn                     use the old style volume naming scheme
+    -vp                     pause before each volume
+    -x<file>                exclude the specified file
+    -x@<listfile>           exclude files using the specified list file
+    -y                      assume Yes on all queries
+    -z<file>                read archive comment from file
+    --                      stop switches scanning
 
 
         Codice DI ESEMPIO
@@ -3208,57 +3289,10 @@ WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
                   v[t,b]        Lista contenuto dell'archivio estesa [T=tecnico, B=solo nome]
                   x             Estrai i file dell'archivio comprendenti il percorso archiv.
 
-                <Opzioni>
-                  -             Interrompi la scansione delle opzioni
-                  @[+]          Disabilita [abilita] l'impiego di file di tipo lista_file
-                  ac            Cancella l'attributo "Modificato" dopo compressione o estraz.
-                  ad            Appende il nome dell'archivio al percorso di destinazione
-                  ag[formato]   Genera il nome dell'archivio utilizzando la data corrente
-                  ai            Ignora gli attributi dei file archiviati
-                  ap<percorso>  Imposta il percorso all'interno dell'archivio
-                  av-           Disabilita il controllo dei dati di autenticazione
-                  c-            Disabilita la visualizzazione del commento
-                  cfg-          Disabilita la lettura della configurazione predefinita
-                  cl            Converti i nomi di file e cartelle in minuscolo
-                  cu            Converti i nomi di file e cartelle in maiuscolo
-                  dh            Apre i file già in uso da altri programmi
-                  ep            Escludi i percorsi originali dai nomi dei file e cartelle
-                  ep3           Archivia il percorso, completo della lettera del disco
-                  f             Aggiorna i file dell'archivio
-                  id[c,d,p,q]   Disabilita la visualizzazione di alcuni o tutti (q) i messaggi
-                  ierr          Invia i messaggi al dispositivo "StdErr"
-                  inul          Disabilita la visualizzazione di tutti i messaggi
-                  ioff          Spegne il PC al termine dell'operazione che va ad iniziare
-                  kb            Estrai anche i file danneggiati
-                  n<file>       Include solo i file specificati
-                  n@            Acquisisci i file da includere da tastiera (o StdIn)
-                  n@<lista>     Includi i file specificati in una lista a file
-                  o[+|-]        Imposta modalità di sovrascrittura [NonChied.|NonSovvr.|Chiedi]
-                  oc            Imposta l'attributo 'Compresso' di NTFS, se presente
-                  or            Rinomina i file estratti automaticamente
-                  ow            Salva/ripristina i dati di "proprietario" e di "gruppo"
-                  p[par.chiave] Imposta la parola chiave
-                  p-            Non chiedere la parola chiave
-                  r             Considera anche le sottocartelle
-                  ri<P>[:<S>]   Priorità esec.(0-predef.,1-min..15-mas) e tempo d'attesa (msec)
-                  sl<dimens.>   Processa i file con dimensione minore a quella indicata
-                  sm<dimens.>   Processa i file con dimensione maggiore a quella indicata
-                  ta<data>      Considera file modificati dopo la <data>,formato AAAAMMGGOOMMSS
-                  tb<data>      Considera file modificati prima di <data>,form. AAAAMMGGOOMMSS
-                  tn<tempo>     Considera i file più recenti del <tempo> specificato
-                  to<tempo>     Considera i file più vecchi del <tempo> specificato
-                  ts<m,c,a>[N]  Salva/ripristina orari file:Modifica,Creazione,Accesso[precis.]
-                  u             Aggiorna e aggiungi file dell'archivio
-                  v             Elenca tutti i volumi
-                  ver[n]        Controllo per la versione dei file
-                  vp            Introduce una pausa prima di ogni volume seguente
-                  x<file>       Escludi i file di seguito specificati
-                  x@            Acquisisci i file da escludere da tastiera (o StdIn)
-                  x@<lista>     Escludi i file specificati in una lista a file
-                  y             Assumi la risposta 'Si' a tutte le domande
+7Z
 
-
-7Z ELENCO COMANDI ED OPZIONI
+    7Z ELENCO COMANDI ED OPZIONI
+    
     ..\Downloads\7z922_extra\7za.exe"     @7Z@COMANDI
 
     7-Zip (a) 9.22 beta  Copyright (c) 1999-2011 Igor Pavlov  2011-04-18
@@ -3300,10 +3334,111 @@ WIN RAR LISTA COMANDI + OPZIONI IN ALFABETICO
 
 
 
+PROGETTO_GESTIONE_RAR_COSTRUTTORE_STRINGHE_MDB
+    
+    TABELLE
+
+    QUERY
+        WinRar_Tb03Qry01_01_SELECT_COSTR_STRINGA_ControlloCod
+            note
+                Query di controllo della stringa rar in costruzione
+            struttura
+                    sSql = ""
+                    sSql = & sSql ""
+                    
+                    SELECT 
+                    WinRar_DF05_CODICE_RAR.COD_RAR_s, 
+                    WinRar_TB02_GESTIONE_OPZIONI.OPZ_01_s, 
+                    WinRar_TB01_GESTIONE_DATE.INIZ_ANNO_i, 
+                    WinRar_TB01_GESTIONE_DATE.INIZ_MESE_i, 
+                    WinRar_TB01_GESTIONE_DATE.INIZ_GIORNO_i, 
+                    WinRar_TB01_GESTIONE_DATE.SETTIMANA_s, 
+                    WinRar_TB01_GESTIONE_DATE.MESE_ESTESO_s, 
+                    WinRar_TB01_GESTIONE_DATE.FIN_ANNO_i, 
+                    WinRar_TB01_GESTIONE_DATE.FIN_MESE_i, 
+                    WinRar_TB01_GESTIONE_DATE.FIN_GIORNO_i, 
+                    WinRar_TB02_GESTIONE_OPZIONI.OPZ_03_s, 
+                    WinRar_TB02_GESTIONE_OPZIONI.OPZ_02_s, 
+                    WinRar_TB01_GESTIONE_DATE.FILE_PROC_s, 
+                    WinRar_TB01_GESTIONE_DATE.NOTE_PROC_m, 
+                    WinRar_TB01_GESTIONE_DATE.LISTA_FILE_s, 
+                    WinRar_TB03_COSTR_STRINGA.RAR_EXE_s
+                    
+                    FROM 
+                    ((WinRar_DF05_CODICE_RAR 
+                        INNER JOIN 
+                            WinRar_TB02_GESTIONE_OPZIONI ON WinRar_DF05_CODICE_RAR.COD_RAR_s = WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s) 
+                        INNER JOIN 
+                            WinRar_TB01_GESTIONE_DATE ON WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s = WinRar_TB01_GESTIONE_DATE.COD_RAR_s) 
+                        INNER JOIN WinRar_TB03_COSTR_STRINGA ON WinRar_TB01_GESTIONE_DATE.COD_RAR_s = WinRar_TB03_COSTR_STRINGA.COD_RAR_s;
+
+
+            faq
+    MODULI
+    CLASSI
+    FORM
+        WinRar_FrmTB03_01_COSTR_STRINGA
+            Note
+                Form per LA COSTRUZIONE STRINGA con la tabella base CODICI RAR che permette di estrarre un rs 
+            Tabella_Master
+                WinRar_TB03_COSTR_STRINGA
+
+            SottoForm**
+                NomeSettoForm
+                    Master
+                    Detail
+                NomeSettoForm2
+                    Master
+                    Detail
+            
+            EVENTI_FORM *
+            
+            EVENTI_CAMPI
+                COD_RAR_Update
+                    Note 
+                        con l'evento aggiona del campo CODICE RAR viene creato un rs in base alle opzioni alla date ed alla tabella 3 di costruzione stringa
+                            Stringa_rs
+
+                                '//STRINGA SQL BASE RICOSTRUITA SULLA BASE DELLA QUERY _
+                                WinRar_Tb03Qry01_01_SELECT_COSTR_STRINGA_ControlloCod
+
+                                sSql = ""
+                                sSql = sSql & "SELECT "
+                                sSql = sSql & "WinRar_DF05_CODICE_RAR.COD_RAR_s, "
+                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_01_s, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_ANNO_i, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_MESE_i, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_GIORNO_i, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.SETTIMANA_s, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.MESE_ESTESO_s, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_ANNO_i, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_MESE_i, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_GIORNO_i, "
+                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_03_s, "
+                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_02_s, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FILE_PROC_s, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.NOTE_PROC_m, "
+                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.LISTA_FILE_s, "            '//@AGGIORNAMENTO.DEL.2022.11.15 = INSERITO
+                                sSql = sSql & "WinRar_TB03_COSTR_STRINGA.RAR_EXE_s "
+                                sSql = sSql & "FROM "
+                                sSql = sSql & "((WinRar_DF05_CODICE_RAR INNER JOIN WinRar_TB02_GESTIONE_OPZIONI ON WinRar_DF05_CODICE_RAR.COD_RAR_s = WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s) "
+                                sSql = sSql & "INNER JOIN WinRar_TB01_GESTIONE_DATE ON WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s = WinRar_TB01_GESTIONE_DATE.COD_RAR_s) "
+                                sSql = sSql & "INNER JOIN WinRar_TB03_COSTR_STRINGA ON WinRar_TB01_GESTIONE_DATE.COD_RAR_s = WinRar_TB03_COSTR_STRINGA.COD_RAR_s "
+                                sSql = sSql & "WHERE (((WinRar_DF05_CODICE_RAR.COD_RAR_s)='" & String1 & "'));"
+
+                                '//controllo
+                                Debug.Print sSql
+                    FAQ
+                        @AGGIORNA@CAMPI.DATA
+                        
+
+                                 
 
 
 
+            faq
+                @COSTRUZIONE.STRINGA@FORM
+    REPORT
 
 
 
- 

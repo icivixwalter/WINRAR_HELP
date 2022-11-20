@@ -3337,6 +3337,7 @@ WIN RAR
 PROGETTO_GESTIONE_RAR_COSTRUTTORE_STRINGHE_MDB
     
     TABELLE
+        ..
 
     QUERY
         WinRar_Tb03Qry01_01_SELECT_COSTR_STRINGA_ControlloCod
@@ -3375,70 +3376,160 @@ PROGETTO_GESTIONE_RAR_COSTRUTTORE_STRINGHE_MDB
 
             faq
     MODULI
+        ..
     CLASSI
+        ..
     FORM
+        
+        WINRAR_Frm01_M01_GESTIONE
+              Note
+                       form master di gesteione di WINRAR e del dos o Bash
+
+              SottoForm
+                       contiende diverse sottoform basate sul tab control
+                           WINRAR_FrmTB01_01_GESTIONE_DATE
+                           WinRar_FrmTB02_01_GESTIONE_OPZIONI
+                           WinRar_FrmTB03_01_COSTR_STRINGA
+                           WinRar_FrmTB04_01_BAT
+
+              EVENTI_PAGINE_TAB_CONTROLL
+                    Contiene un tab control con eventi per ogni cambiamento di pagina in cui
+                    viene attivato il menu della pagina
+                        @MENU.TAB.CONTROL
+
+              EVENTO_FORM_LOAD
+                Carica il menu iniziale della form load di questa master
+                    @MENU.INIZIALE@FORM.LOAD
+                    @CARICA@MENU.iniziale@CMB
+
+          OGGETTI_FORM 
+                     TabCtl1
+                            il tab control della form master
+                        @TAB@CONTROL
+                     CMB.01
+                            EVENTO_AFTER_UPDATE
+                        casella combinata della form master per la gestione dei MENU DELLA FORM MASTER e per la GESTIONE DEI MENU DELLE SOTTOFORM del tab controll
+                        Sull'evento after update della combinata vengono aggiornati i menu
+
+                            @COMBINATA.01@Cmb_01@COMBINATA.01@Cmb_01@AfterUpdate
+                            @Cmb_01@AGGIORNAMENTO.DEI.MENU
+
+          PROCEDIMENTO_DI_GESTIONE_MENU 
+                    GESTIONE MENU SULLA COMBINATA DELLA FORM MASTER
+                         CMB_01
+                              Per gestire una casella combinata occorre per prima cosa costruire :
+                              - Una form Master con una casella combinata Cmb_01 +
+                                un Tab controllo unitamente alle sottoform quante previste;
+                              
+                              - creare un evento change del tab controll con l'evento
+                                   TabCtl1_Change
+                                   
+                              - impostare una select case con il recupero dell'indice di pagina 
+                                con  una  Select Case pge.PageIndex   all'interno dell'evento
+                                change del tab controll
+                                   @INDEX.PAGINE@TAB.CONTROL@index
+                                   
+                              - creare una funzione IMPOSTA LA COMBINATA denominata
+                                   pFunct_IMPOSTA_CMB al quale passare il parametro del menu base
+                                   della scelta @IMPOSTA@COMBINATA
+                                alla fine della funzione occore impostare  le propieta della combinata 
+                                quali  max colonne con 
+                                                 Me.Cmb_01_TXT.ColumnCount = 1                              '//qui indico alla combinata che deve avere 1 COLONNA
+                                  
+                                                '//imposto ad elenco valori
+                                                 Me.Cmb_01_TXT.RowSourceType = "Elenco valori"              '//qui imposto la proprieta della combinata ad elenco valori
+                                    
+                                                 '//imposto il valore base
+                                                 Me.Cmb_01_TXT.Value = par_COD_MENU_s                       '//qui imposto il valore base secondo la variabile della select
+                                                 Me.Cmb_01_TXT.RowSource = String1                   '//carica nella combinata tutte le scelte   
+                                                 Me.Cmb_01_TXT.Requery                          '//aggiorna   
+                       
+                                   
+                              
+                    EVENTI_GESTIONE_MENU
+                              
+                         1) EVENTO APERTURA FORM
+                              Imposta l'evento 
+                              all'apertura della form master viene aggiornato il menu della casella
+                              combinata. 
+                                   es. @Cmb_01@AGGIORNAMENTO.DEI.MENUù
+                              
+                              
+                              
+                         2) EVENTO SU AGGIORNAMENTO DELLA COMBINATA
+                              Cmb_01_AfterUpdate
+                                   all'aggiornamento della form combinata viene chiama La funzione
+                                   pfFunction_GE_ATTI_MENU Me.Cmb_01.Value passando come paramentro
+                                   il valore scelto nella campo a discesa.
+                                        es. @COMBINATA.01@Cmb_01@AfterUpdate, @Cmb_01@AGGIORNAMENTO.DEI.MENU
+                                        
+                                   
+                                        
+                    
+
+
         WinRar_FrmTB03_01_COSTR_STRINGA
-            Note
-                Form per LA COSTRUZIONE STRINGA con la tabella base CODICI RAR che permette di estrarre un rs 
-            Tabella_Master
-                WinRar_TB03_COSTR_STRINGA
+               Note
+                          Form per LA COSTRUZIONE STRINGA con la tabella base CODICI RAR che permette di estrarre un rs 
+                     
+               Tabella_Master
+                          WinRar_TB03_COSTR_STRINGA
 
-            SottoForm**
-                NomeSettoForm
-                    Master
-                    Detail
-                NomeSettoForm2
-                    Master
-                    Detail
-            
-            EVENTI_FORM *
-            
-            EVENTI_CAMPI
-                COD_RAR_Update
-                    Note 
-                        con l'evento aggiona del campo CODICE RAR viene creato un rs in base alle opzioni alla date ed alla tabella 3 di costruzione stringa
-                            Stringa_rs
+               SottoForm**
+                          NomeSettoForm
+                              Master
+                              Detail
+                          NomeSettoForm2
+                              Master
+                              Detail
+                      
+               EVENTI_FORM *
+                      
+               EVENTI_CAMPI
+                          COD_RAR_Update
+                              Note 
+                                  con l'evento aggiona del campo CODICE RAR viene creato un rs in base alle opzioni alla date ed alla tabella 3 di costruzione stringa
+                                      Stringa_rs
 
-                                '//STRINGA SQL BASE RICOSTRUITA SULLA BASE DELLA QUERY _
-                                WinRar_Tb03Qry01_01_SELECT_COSTR_STRINGA_ControlloCod
+                                          '//STRINGA SQL BASE RICOSTRUITA SULLA BASE DELLA QUERY _
+                                          WinRar_Tb03Qry01_01_SELECT_COSTR_STRINGA_ControlloCod
 
-                                sSql = ""
-                                sSql = sSql & "SELECT "
-                                sSql = sSql & "WinRar_DF05_CODICE_RAR.COD_RAR_s, "
-                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_01_s, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_ANNO_i, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_MESE_i, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_GIORNO_i, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.SETTIMANA_s, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.MESE_ESTESO_s, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_ANNO_i, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_MESE_i, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_GIORNO_i, "
-                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_03_s, "
-                                sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_02_s, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FILE_PROC_s, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.NOTE_PROC_m, "
-                                sSql = sSql & "WinRar_TB01_GESTIONE_DATE.LISTA_FILE_s, "            '//@AGGIORNAMENTO.DEL.2022.11.15 = INSERITO
-                                sSql = sSql & "WinRar_TB03_COSTR_STRINGA.RAR_EXE_s "
-                                sSql = sSql & "FROM "
-                                sSql = sSql & "((WinRar_DF05_CODICE_RAR INNER JOIN WinRar_TB02_GESTIONE_OPZIONI ON WinRar_DF05_CODICE_RAR.COD_RAR_s = WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s) "
-                                sSql = sSql & "INNER JOIN WinRar_TB01_GESTIONE_DATE ON WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s = WinRar_TB01_GESTIONE_DATE.COD_RAR_s) "
-                                sSql = sSql & "INNER JOIN WinRar_TB03_COSTR_STRINGA ON WinRar_TB01_GESTIONE_DATE.COD_RAR_s = WinRar_TB03_COSTR_STRINGA.COD_RAR_s "
-                                sSql = sSql & "WHERE (((WinRar_DF05_CODICE_RAR.COD_RAR_s)='" & String1 & "'));"
+                                          sSql = ""
+                                          sSql = sSql & "SELECT "
+                                          sSql = sSql & "WinRar_DF05_CODICE_RAR.COD_RAR_s, "
+                                          sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_01_s, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_ANNO_i, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_MESE_i, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.INIZ_GIORNO_i, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.SETTIMANA_s, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.MESE_ESTESO_s, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_ANNO_i, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_MESE_i, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FIN_GIORNO_i, "
+                                          sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_03_s, "
+                                          sSql = sSql & "WinRar_TB02_GESTIONE_OPZIONI.OPZ_02_s, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.FILE_PROC_s, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.NOTE_PROC_m, "
+                                          sSql = sSql & "WinRar_TB01_GESTIONE_DATE.LISTA_FILE_s, "            '//@AGGIORNAMENTO.DEL.2022.11.15 = INSERITO
+                                          sSql = sSql & "WinRar_TB03_COSTR_STRINGA.RAR_EXE_s "
+                                          sSql = sSql & "FROM "
+                                          sSql = sSql & "((WinRar_DF05_CODICE_RAR INNER JOIN WinRar_TB02_GESTIONE_OPZIONI ON WinRar_DF05_CODICE_RAR.COD_RAR_s = WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s) "
+                                          sSql = sSql & "INNER JOIN WinRar_TB01_GESTIONE_DATE ON WinRar_TB02_GESTIONE_OPZIONI.COD_RAR_s = WinRar_TB01_GESTIONE_DATE.COD_RAR_s) "
+                                          sSql = sSql & "INNER JOIN WinRar_TB03_COSTR_STRINGA ON WinRar_TB01_GESTIONE_DATE.COD_RAR_s = WinRar_TB03_COSTR_STRINGA.COD_RAR_s "
+                                          sSql = sSql & "WHERE (((WinRar_DF05_CODICE_RAR.COD_RAR_s)='" & String1 & "'));"
 
-                                '//controllo
-                                Debug.Print sSql
-                    FAQ
-                        @AGGIORNA@CAMPI.DATA
-                        
+                                          '//controllo
+                                          Debug.Print sSql
+                              FAQ
+                                  @AGGIORNA@CAMPI.DATA
 
-                                 
-
-
-
-            faq
+               faq
                 @COSTRUZIONE.STRINGA@FORM
+    
+
+
     REPORT
+        ..
 
 
 

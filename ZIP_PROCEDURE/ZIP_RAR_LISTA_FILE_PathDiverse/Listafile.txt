@@ -1,2 +1,3 @@
 *.txt		
 *.BAT
+c:\Casa\CDM\GE_CDM\ANAGR\ANAGR_MDB\*.mdb

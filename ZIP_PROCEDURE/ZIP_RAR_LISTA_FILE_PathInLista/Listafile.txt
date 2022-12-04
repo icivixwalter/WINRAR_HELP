@@ -1,2 +1,1 @@
-c:\Casa\WinRAR\WIN_RAR_BAT\ZIP_RAR_MANUALI\*.chw
-
+c:\Casa\CDM\GE_CDM\ANAGR\ANAGR_MDB\*.*

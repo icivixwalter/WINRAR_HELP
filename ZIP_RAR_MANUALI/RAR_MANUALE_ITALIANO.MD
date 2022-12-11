@@ -1,4 +1,115 @@
 
+ANALISI_COMUNE_COMANDO
+    SCHEMA_RAR 
+            RAR <comando> -<opzione_1> -<opzione_N> <archivio> <file...>  <@lista_file...> <percorso_dove_estrarre\>
+            
+RAR       COM  OPZ_01    OPZ_02          OPZ_03           archivio        file_lista            path
+RAR.EXE     a   -r       -taMC:2022:11:1 -tbMC:2022:11:32 %FileRarCASA%   @casaListafile.txt    c:\casa\posta\
+    
+
+    SCHEMA_DOS CMD
+DOS
+        COM   DRV  PATH  file     PAR_01    PAR_02  PAR_03
+        DIR   C:   \dos   a.txt   /P        /Q       /A
+
+SCHEMA GENERALE
+TIPO  CMD  DRV PATH_ESTR FileList POA_01 POA_02 POA_03 POA_04 Archivio 
+
+SCHEMA DOS_FINALE
+
+TIPO_CMD_s    COD_ATTIV_s  CMD_s   
+DOS  DOS_DIR  DIR -ac      DIR     
+
+ANALISI_DOS
+    Schema_Comando_Dos
+        Note
+            i comandi do si trovano in questo url:
+            https://learn.microsoft.com/it-it/windows-server/administration/windows-commands/dir
+
+            dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4] [/r]
+
+
+
+        COMANDI
+            DIR
+                Nota
+                    Visualizza un elenco di file e le sottodirectory della directory. Se usato senza parametri, questo comando visualizza l'etichetta del volume e il numero di serie del disco, seguiti da un elenco di directory e file sul disco (inclusi i nomi e la data e l'ora dell'ultima modifica). Per i file, questo comando visualizza l'estensione del nome e le dimensioni in byte. Questo comando visualizza anche il numero totale di file e directory elencati, le relative dimensioni cumulative e lo spazio disponibile (in byte) rimanenti sul disco.
+
+                PARAMETRI
+
+                    Parametro           
+                                        Descrizione
+                    [<drive>:][<path>]  
+                                        Specifica l'unità e directory per il quale si desidera visualizzare un elenco.
+
+                    [<filename>]        
+                                        Specifica un file specifico o un gruppo di file per il quale si desidera visualizzare un elenco.
+
+                    / p                 
+                                        Visualizza una schermata dell'elenco alla volta. Per visualizzare la schermata successiva,    premere un tasto qualsiasi.
+                                        esempio DIR /P
+
+                    /q                  Visualizza informazioni sulla proprietà di file.
+
+                    /W                  
+                                        Visualizza l'elenco in formato esteso, con un massimo di cinque nomi di file o i nomi di directory in ogni riga.
+                                        ESEMPIO
+                                        DIR /W
+
+                    /d                  Visualizza l'elenco nello stesso formato /w, ma i file vengono ordinati per colonna
+                                        ed ordinati in alfabetico
+
+                    /a[[:]<attributes>] 
+                                    
+                                    ATTRIBUTI /A
+                                        Visualizza solo i nomi di tali directory e file con gli attributi specificati. Se non si usa questo parametro, il comando visualizza i nomi di tutti i file, ad eccezione dei file nascosti e di sistema. Se si utilizza questo parametro senza specificare alcun attributo, il comando visualizza i nomi di tutti i file, inclusi i file nascosti e di sistema. L'elenco dei 
+                                        possibili valori degli attributi è:
+
+
+                                        d - Directory
+                                            esempio dir /a:d
+
+                                        h - File nascosti
+                                                    dir /a:h
+
+                                        s - File di sistema
+                                                    dir /a:s
+                                        l - Reparse points
+
+                                        r - File di sola lettura
+                                                    dir /a:r
+
+                                        a - File pronti per l'archiviazione
+                                                    dir /a:a
+
+                                        i - File indicizzati non contenuti
+                                            È possibile usare qualsiasi combinazione di questi valori, ma non separare i valori usando spazi. Facoltativamente, è possibile usare due punti (:) separatore oppure è possibile usare un trattino (-) come prefisso per indicare "not". Ad esempio, l'uso dell'attributo -s non mostrerà i file di sistema.
+
+                    /o[[:]<sortorder>]  
+                                    ATTRIBUTI /O
+                                        Ordina l'output in base a sortorder, che può essere qualsiasi combinazione dei valori seguenti:
+
+                                            n - Alfabeticamente per nome
+                                            e - Alfabeticamente per estensione
+                                            g - Prima directory di gruppo
+                                            s - Per dimensione, primo più piccolo
+                                            d - Per data/ora, prima meno recente
+                                                Usare il - prefisso per invertire l'ordinamento
+                                                    ESEMPIO 
+                                                        DIR -d
+
+                                        .... finire
+
+ANALISI_WINRAR
+     RAR <comando> -<opzione_1> -<opzione_N> <archivio> <file...>  <@lista_file...> <percorso_dove_estrarre\>
+
+            RAR.EXE COMANDO -OPZIONE 1 OPZIONE 2 OPZIONE 3 ARCHIVIO.RAR FILE/@LISTA_FILE PATH_ESTRAZIONE
+
+        c:\CASA\WinRAR\Rar.exe  a -r -taMC:2022:11:1 -tbMC:2022:11:32 %FileRarCASA% @ZIP_RAR_N04_DATA_TAC-TBC_casaListafile.txt
+
+
+
+
 WIN RAR
     WIN RAR MANUALE_UTENTE_INTRODUZIONE
 
@@ -144,6 +255,8 @@ WIN RAR
             RAR <comando> -<opzione_1> -<opzione_N> <archivio> <file...>
                 <@lista_file...> <percorso_dove_estrarre\>
 
+
+            RAR.EXE COMANDO -OPZIONE 1 OPZIONE 2 OPZIONE 3 ARCHIVIO.RAR FILE/@LISTA_FILE PATH_ESTRAZIONE
 
          Descrizione
 
